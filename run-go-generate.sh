@@ -4,7 +4,7 @@ git status >&2
 
 pre=$(git diff-index HEAD)
 
-echo "$@" | xargs -n1 go generate
+echo "$@" | xargs -n1 go generate >&2
 
 git status >&2
 
