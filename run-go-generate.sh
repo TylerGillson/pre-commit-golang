@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -eu -o pipefail
-
 git stash
 
 echo "$@" | xargs -n1 go generate
