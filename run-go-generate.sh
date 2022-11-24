@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 
+git status >&2
+
 pre=$(git diff-index HEAD)
 
 echo "$@" | xargs -n1 go generate
+
+git status >&2
 
 post=$(git diff-index HEAD)
 
