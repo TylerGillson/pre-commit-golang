@@ -81,6 +81,7 @@
     files: '\.go$'
     language: 'script'
     description: "Runs `go generate`, requires golang"
+    always_run: true
 -   id: go-mod-tidy
     name: 'go-mod-tidy'
     entry: run-go-mod-tidy.sh
