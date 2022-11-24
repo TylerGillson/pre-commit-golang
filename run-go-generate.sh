@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
-git stash
+pre=$(git diff-index HEAD)
 
 echo "$@" | xargs -n1 go generate
 
-# Assert no changes
-git diff-index --quiet HEAD || git stash pop && exit 1
+post=$(git diff-index HEAD)
 
-git stash pop
+if ! [[ "$pre" == "$post" ]]; then
+  echo "You need to run `go generate`"
+  exit 1
+fi
