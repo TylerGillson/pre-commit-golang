@@ -2,7 +2,7 @@
 
 set -eu -o pipefail
 
-go generate ./...
+echo "$@" | xargs -n1 go generate
 
 # Assert no changes
 git diff-index --quiet HEAD || exit 1
